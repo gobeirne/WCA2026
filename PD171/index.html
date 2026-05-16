@@ -151,6 +151,32 @@ body {
 }
 @media (min-width: 480px) { .toggle-hint { display: block; } }
 
+/* PDF button — same pill style, pushed to right */
+.pdf-btn {
+  margin-left: auto;
+  text-decoration: none;
+  color: var(--mid);
+  display: flex;
+}
+.toggle-hint + .pdf-btn { margin-left: 0.5rem; } /* when hint is also showing */
+@media (max-width: 479px) { .pdf-btn { margin-left: auto; } }
+
+.pdf-btn span {
+  display: block;
+  padding: 0.28rem 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mid);
+  transition: background 0.15s, color 0.15s;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.pdf-btn:hover span {
+  background: var(--red);
+  color: var(--white);
+}
+
 /* ── Main content ── */
 main {
   max-width: 780px;
@@ -578,6 +604,9 @@ footer {
         <button id="btn-details" onclick="setMode('details')">Details</button>
       </div>
       <span class="toggle-hint">Switch anytime — figures stay put</span>
+      <a class="toggle-pill pdf-btn" href="WCA2026_PD171.pdf" target="_blank" rel="noopener" title="Open poster PDF in new tab">
+        <span>PDF ↗</span>
+      </a>
     </div>
   </div>
 </header>
@@ -1123,6 +1152,22 @@ footer {
    BULLET / DETAIL TOGGLE
 ══════════════════════════════════════ */
 function setMode(mode) {
+  // ── Find the best anchor heading currently in the viewport ──
+  // We look at all section headings (study titles + sub-headings) and pick
+  // the one whose top edge is closest to (but not above) the sticky header.
+  const headerH = document.querySelector('.site-header').offsetHeight;
+  const anchors = Array.from(document.querySelectorAll('.sec-title, .sub-h'));
+  let best = null, bestDist = Infinity;
+  for (const el of anchors) {
+    const rect = el.getBoundingClientRect();
+    // Only consider headings that are currently visible in viewport
+    if (rect.top < window.innerHeight && rect.bottom > headerH) {
+      const dist = Math.abs(rect.top - headerH);
+      if (dist < bestDist) { bestDist = dist; best = el; }
+    }
+  }
+
+  // ── Switch mode ──
   if (mode === 'details') {
     document.body.classList.add('show-details');
     document.getElementById('btn-details').classList.add('active');
@@ -1131,6 +1176,16 @@ function setMode(mode) {
     document.body.classList.remove('show-details');
     document.getElementById('btn-bullets').classList.add('active');
     document.getElementById('btn-details').classList.remove('active');
+  }
+
+  // ── Restore scroll position so the anchor heading is in the same spot ──
+  if (best) {
+    // After reflow, scroll so 'best' is at the same distance from header top
+    requestAnimationFrame(() => {
+      const newRect = best.getBoundingClientRect();
+      const drift = newRect.top - (headerH + bestDist);
+      window.scrollBy({ top: drift, behavior: 'instant' });
+    });
   }
 }
 
