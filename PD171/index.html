@@ -36,11 +36,11 @@ body {
   background: var(--white);
   border-top: 4px solid var(--red);
   border-bottom: 1px solid var(--rule);
-  padding: 1.25rem 1.25rem 1.1rem;
+  padding: 1rem 1.25rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .header-inner {
@@ -61,7 +61,7 @@ body {
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--red);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-title {
@@ -70,7 +70,7 @@ body {
   font-weight: 600;
   line-height: 1.25;
   color: var(--text);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
 .authors {
@@ -80,11 +80,23 @@ body {
 }
 .authors strong { color: var(--text); font-weight: 600; }
 
-/* ── Toggle bar ── */
+/* ── Toggle bar — part of sticky header ── */
 .toggle-bar {
-  background: var(--white);
-  border-bottom: 1px solid var(--rule);
-  padding: 0.6rem 1.25rem;
+  max-width: 780px;
+  margin: 0.65rem auto 0;
+  border-top: 1px solid var(--rule);
+  padding: 0.45rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* spacer so toggle-bar fills full bleed width inside header */
+.toggle-bar-outer {
+  margin: 0 -1.25rem;
+  padding: 0 1.25rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 0.65rem;
 }
 
 .toggle-inner {
@@ -93,15 +105,15 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  padding: 0.45rem 0;
 }
 
 .toggle-label {
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mid);
-  margin-right: 0.25rem;
 }
 
 .toggle-pill {
@@ -110,18 +122,16 @@ body {
   border: 1.5px solid var(--rule);
   border-radius: 99px;
   overflow: hidden;
-  font-size: 0.8rem;
-  font-weight: 600;
 }
 
 .toggle-pill button {
-  padding: 0.35rem 1rem;
+  padding: 0.28rem 0.9rem;
   border: none;
   background: transparent;
   cursor: pointer;
   color: var(--mid);
   font-family: var(--sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   transition: background 0.15s, color 0.15s;
   border-radius: 99px;
@@ -134,8 +144,8 @@ body {
 }
 
 .toggle-hint {
-  font-size: 0.72rem;
-  color: #aaa;
+  font-size: 0.71rem;
+  color: #bbb;
   margin-left: auto;
   display: none;
 }
@@ -408,7 +418,66 @@ tbody tr:nth-child(even) td { background: #fafafa; }
 }
 .placeholder-table strong { display: block; color: var(--mid); margin-bottom: 0.3rem; font-size: 0.9rem; }
 
-/* ── Stat chips ── */
+/* ── Foil category cell colours (matching poster) ── */
+:root {
+  --fc-vfc:    #FFF2CC; /* V, Final C       – amber/yellow   */
+  --fc-icfc:   #DAE8FC; /* Initial C, Final C – light blue   */
+  --fc-icv:    #D5E8D4; /* Initial C, V     – light green    */
+  --fc-v:      #E1D5E7; /* V only           – lavender       */
+  --fc-ic:     #D4EDDA; /* Initial C only   – mint           */
+  --fc-fc:     #FFE6CC; /* Final C only     – peach          */
+  --fc-sem:    #F8CECC; /* Semantic         – rose/pink      */
+  --fc-unr:    #E8E8E8; /* Unrelated        – light grey     */
+}
+
+td.fc-vfc    { background: var(--fc-vfc)  !important; }
+td.fc-icfc   { background: var(--fc-icfc) !important; }
+td.fc-icv    { background: var(--fc-icv)  !important; }
+td.fc-v      { background: var(--fc-v)    !important; }
+td.fc-ic     { background: var(--fc-ic)   !important; }
+td.fc-fc     { background: var(--fc-fc)   !important; }
+td.fc-sem    { background: var(--fc-sem)  !important; }
+td.fc-unr    { background: var(--fc-unr)  !important; }
+
+/* Colour key swatch */
+.colour-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  margin: 0.6rem 0 0.9rem;
+  font-size: 0.72rem;
+}
+.ck-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--mid);
+}
+.ck-swatch {
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+/* Tables 2&3 side by side */
+.tables-23 {
+  display: flex;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.tables-23 .table-wrap { flex: 1; min-width: 220px; margin: 0; }
+.tables-23 table { min-width: unset; }
+.tables-23 .tbl-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 0.35rem;
+}
 .stat-row { display: flex; gap: 0.6rem; margin: 0.9rem 0; flex-wrap: wrap; }
 .stat {
   flex: 1; min-width: 90px;
@@ -501,21 +570,17 @@ footer {
       </div>
     </div>
   </div>
-</header>
-
-<!-- ══════════════════════════════════════
-     TOGGLE BAR
-══════════════════════════════════════ -->
-<div class="toggle-bar">
-  <div class="toggle-inner">
-    <span class="toggle-label">View</span>
-    <div class="toggle-pill">
-      <button id="btn-bullets" class="active" onclick="setMode('bullets')">Bullet points</button>
-      <button id="btn-details" onclick="setMode('details')">Details</button>
+  <div class="toggle-bar-outer">
+    <div class="toggle-inner">
+      <span class="toggle-label">View</span>
+      <div class="toggle-pill">
+        <button id="btn-bullets" class="active" onclick="setMode('bullets')">Bullet points</button>
+        <button id="btn-details" onclick="setMode('details')">Details</button>
+      </div>
+      <span class="toggle-hint">Switch anytime — figures stay put</span>
     </div>
-    <span class="toggle-hint">Switch anytime — figures stay put</span>
   </div>
-</div>
+</header>
 
 <!-- ══════════════════════════════════════
      MAIN CONTENT
@@ -859,6 +924,18 @@ footer {
         <!-- Table 1 -->
         <div class="sub-h" style="margin-top:1.25rem">Table 1 — The Two Finalised UC4AFC Word Lists</div>
 
+        <!-- Table 1 colour key — only shown when foil categories visible -->
+        <div class="colour-key" id="colour-key" style="display:none">
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-vfc)"></span>V, Final C</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-icfc)"></span>Initial C, Final C</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-icv)"></span>Initial C, V</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-v)"></span>V only</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-ic)"></span>Initial C only</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-fc)"></span>Final C only</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-sem)"></span>Semantic</span>
+          <span class="ck-item"><span class="ck-swatch" style="background:var(--fc-unr)"></span>Unrelated</span>
+        </div>
+
         <div class="table-controls">
           <div class="tab-group">
             <button id="tab-set1" class="active" onclick="showSet(1)">Set 1</button>
@@ -890,12 +967,86 @@ footer {
           </table>
         </div>
 
-        <!-- Tables 2 & 3 placeholder -->
+        <!-- Tables 2 & 3 -->
         <div class="sub-h" style="margin-top:1.5rem">Tables 2 &amp; 3 — Foil Categories &amp; Target Vowels</div>
-        <div class="placeholder-table">
-          <strong>Placeholder — Tables 2 &amp; 3</strong>
-          Foil category counts (Set 1 / Set 2 / Total) and target vowel distribution will be added when the Word doc is supplied.
-        </div>
+
+        <div class="tables-23">
+
+          <!-- Table 2: Foil categories -->
+          <div>
+            <div class="tbl-title">Table 2. Foil category occurrences</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Set 1</th>
+                    <th>Set 2</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="fc-ic">Initial C only</td><td>15</td><td>15</td><td>30</td></tr>
+                  <tr><td class="fc-icv">Initial C, V</td><td>4</td><td>4</td><td>8</td></tr>
+                  <tr><td class="fc-v">V only</td><td>18</td><td>18</td><td>36</td></tr>
+                  <tr><td class="fc-fc">Final C only</td><td>5</td><td>6</td><td>11</td></tr>
+                  <tr><td class="fc-vfc">V, Final C</td><td>14</td><td>14</td><td>28</td></tr>
+                  <tr><td class="fc-icfc">Initial C, Final C</td><td>10</td><td>9</td><td>19</td></tr>
+                  <tr><td class="fc-sem">Semantic</td><td>15</td><td>16</td><td>31</td></tr>
+                  <tr><td class="fc-unr">Unrelated</td><td>18</td><td>17</td><td>35</td></tr>
+                  <tr style="border-top:2px solid var(--rule)">
+                    <td style="font-weight:600">Initial C total</td><td>29</td><td>28</td><td>57</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:600">V total</td><td>36</td><td>36</td><td>72</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:600">Final C total</td><td>29</td><td>29</td><td>58</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Table 3: Target vowels -->
+          <div>
+            <div class="tbl-title">Table 3. Target vowel distribution</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Vowel</th>
+                    <th>Set 1</th>
+                    <th>Set 2</th>
+                    <th>Total</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>TRAP</td>  <td>4</td><td>5</td><td>9</td> <td>13.6%</td></tr>
+                  <tr><td>FLEECE</td><td>4</td><td>3</td><td>7</td> <td>10.6%</td></tr>
+                  <tr><td>KIT</td>   <td>3</td><td>4</td><td>7</td> <td>10.6%</td></tr>
+                  <tr><td>LOT</td>   <td>3</td><td>3</td><td>6</td> <td>9.1%</td></tr>
+                  <tr><td>STRUT</td> <td>3</td><td>3</td><td>6</td> <td>9.1%</td></tr>
+                  <tr><td>GOAT</td>  <td>3</td><td>3</td><td>6</td> <td>9.1%</td></tr>
+                  <tr><td>PRICE</td> <td>2</td><td>3</td><td>5</td> <td>7.6%</td></tr>
+                  <tr><td>NURSE</td> <td>2</td><td>2</td><td>4</td> <td>6.1%</td></tr>
+                  <tr><td>THOUGHT</td><td>2</td><td>1</td><td>3</td><td>4.5%</td></tr>
+                  <tr><td>START</td> <td>2</td><td>1</td><td>3</td> <td>4.5%</td></tr>
+                  <tr><td>DRESS</td> <td>2</td><td>1</td><td>3</td> <td>4.5%</td></tr>
+                  <tr><td>MOUTH</td> <td>1</td><td>1</td><td>2</td> <td>3.0%</td></tr>
+                  <tr><td>FOOT</td>  <td>1</td><td>1</td><td>2</td> <td>3.0%</td></tr>
+                  <tr><td>FACE</td>  <td>1</td><td>1</td><td>2</td> <td>3.0%</td></tr>
+                  <tr><td>GOOSE</td> <td>0</td><td>1</td><td>1</td> <td>1.5%</td></tr>
+                  <tr style="border-top:2px solid var(--rule)">
+                    <td style="font-weight:600">Total</td><td>33</td><td>33</td><td>66</td><td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div><!-- /.tables-23 -->
 
       </div>
     </details>
@@ -986,6 +1137,18 @@ function setMode(mode) {
 /* ══════════════════════════════════════
    TABLE 1 DATA & RENDERING
 ══════════════════════════════════════ */
+
+// Map foil relationship strings to CSS classes
+const fcClass = {
+  'V, Final C':           'fc-vfc',
+  'Initial C, Final C':   'fc-icfc',
+  'Initial C, V':         'fc-icv',
+  'V':                    'fc-v',
+  'Initial C':            'fc-ic',
+  'Final C':              'fc-fc',
+  'Semantic':             'fc-sem',
+  'Unrelated':            'fc-unr',
+};
 const set1 = [
   [1,  'lock',   'sock',   'lick',   'knees',  'V, Final C',       'Initial C, Final C', 'Unrelated'],
   [2,  'kite',   'night',  'cot',    'chalk',  'V, Final C',       'Initial C, Final C', 'Semantic'],
@@ -1064,17 +1227,23 @@ function renderTable(setNum) {
   const data = setNum === 1 ? set1 : set2;
   const tbody = document.getElementById('table1-body');
   const showFoils = document.getElementById('foil-toggle-cb').checked;
-  tbody.innerHTML = data.map(r => `
-    <tr>
+  tbody.innerHTML = data.map(r => {
+    // r: [#, target, foil1, foil2, foil3, rel1, rel2, rel3]
+    const c1 = fcClass[r[5]] || '';
+    const c2 = fcClass[r[6]] || '';
+    const c3 = fcClass[r[7]] || '';
+    const vis = showFoils ? ' visible' : '';
+    return `<tr>
       <td>${r[0]}</td>
       <td><strong>${r[1]}</strong></td>
       <td>${r[2]}</td>
       <td>${r[3]}</td>
       <td>${r[4]}</td>
-      <td class="foil-col${showFoils ? ' visible' : ''}">${r[5]}</td>
-      <td class="foil-col${showFoils ? ' visible' : ''}">${r[6]}</td>
-      <td class="foil-col${showFoils ? ' visible' : ''}">${r[7]}</td>
-    </tr>`).join('');
+      <td class="foil-col${vis} ${c1}">${r[5]}</td>
+      <td class="foil-col${vis} ${c2}">${r[6]}</td>
+      <td class="foil-col${vis} ${c3}">${r[7]}</td>
+    </tr>`;
+  }).join('');
 }
 
 function showSet(n) {
@@ -1085,6 +1254,8 @@ function showSet(n) {
 }
 
 function toggleFoilCols() {
+  const show = document.getElementById('foil-toggle-cb').checked;
+  document.getElementById('colour-key').style.display = show ? 'flex' : 'none';
   renderTable(currentSet);
 }
 
