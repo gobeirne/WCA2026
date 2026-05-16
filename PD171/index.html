@@ -1,1 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCA 2026 – PD 171 | UC4AFC Word List</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & variables ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --red:      #CC0000;
+  --red-dk:   #a80000;
+  --text:     #1c1c1c;
+  --mid:      #555;
+  --light:    #f4f4f4;
+  --white:    #ffffff;
+  --rule:     #e0e0e0;
+  --sans:     'Source Sans 3', sans-serif;
+  --serif:    'EB Garamond', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--light);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Sticky header ── */
+.site-header {
+  background: var(--white);
+  border-top: 4px solid var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 1.25rem 1.1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+.header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.uc-logo { width: 52px; flex-shrink: 0; margin-top: 2px; }
+
+.header-text { flex: 1; min-width: 0; }
+
+.conf-tag {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.3rem;
+}
+
+.site-title {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 3.2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.authors {
+  font-size: 0.76rem;
+  color: var(--mid);
+  line-height: 1.45;
+}
+.authors strong { color: var(--text); font-weight: 600; }
+
+/* ── Toggle bar ── */
+.toggle-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 1.25rem;
+}
+
+.toggle-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toggle-label {
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-right: 0.25rem;
+}
+
+.toggle-pill {
+  display: flex;
+  background: var(--light);
+  border: 1.5px solid var(--rule);
+  border-radius: 99px;
+  overflow: hidden;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.toggle-pill button {
+  padding: 0.35rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--mid);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+  border-radius: 99px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-pill button.active {
+  background: var(--red);
+  color: var(--white);
+}
+
+.toggle-hint {
+  font-size: 0.72rem;
+  color: #aaa;
+  margin-left: auto;
+  display: none;
+}
+@media (min-width: 480px) { .toggle-hint { display: block; } }
+
+/* ── Main content ── */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 0 4rem;
+}
+
+/* ── Section cards ── */
+.card {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+.card:first-of-type { margin-top: 1rem; border-top: 1px solid var(--rule); }
+
+/* Section summary/details */
+.card > details { }
+
+.card > details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  gap: 0.75rem;
+}
+.card > details > summary::-webkit-details-marker { display: none; }
+
+.summary-left { display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 0; }
+
+.sec-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.sec-title {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.chevron {
+  font-size: 1.2rem;
+  color: var(--rule);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details[open] > summary .chevron { transform: rotate(90deg); color: var(--red); }
+
+/* Section body */
+.sec-body {
+  padding: 0 1.25rem 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Content blocks ── */
+
+/* Bullet / detail switching */
+.bullets { display: block; }
+.details-text { display: none; }
+
+body.show-details .bullets { display: none; }
+body.show-details .details-text { display: block; }
+
+/* Prose */
+.details-text p {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: #333;
+  margin-top: 0.85em;
+}
+.details-text p:first-child { margin-top: 0; }
+.details-text em { font-style: italic; }
+
+/* Bullet lists */
+.bullets ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.bullets ul li {
+  position: relative;
+  padding: 0.28rem 0 0.28rem 1.1rem;
+  font-size: 0.91rem;
+  color: var(--mid);
+  line-height: 1.55;
+}
+.bullets ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.5;
+}
+.bullets ul ul { padding-left: 0.75rem; margin-top: 0.1rem; }
+.bullets ul ul li { font-size: 0.85rem; }
+.bullets ul ul li::before { width: 3px; height: 3px; opacity: 0.35; }
+
+/* Sub-headings inside sections */
+.sub-h {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--mid);
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.sub-h:first-child { margin-top: 0.8rem; }
+
+/* ── Figures ── */
+figure {
+  margin: 1.25rem 0;
+  background: var(--light);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--mid);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+}
+figcaption strong { color: var(--text); }
+
+/* Side-by-side figures */
+.fig-row {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+.fig-row figure {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+/* ── Tables ── */
+.table-wrap {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  min-width: 320px;
+}
+
+thead th {
+  background: var(--light);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--mid);
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 0.42rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) td { background: #fafafa; }
+
+.foil-col { display: none; }
+.foil-col.visible { display: table-cell; }
+
+/* Table tabs */
+.table-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tab-group {
+  display: flex;
+  background: var(--light);
+  border: 1.5px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.78rem;
+}
+.tab-group button {
+  padding: 0.3rem 0.9rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mid);
+  -webkit-tap-highlight-color: transparent;
+}
+.tab-group button.active {
+  background: var(--red);
+  color: white;
+}
+
+.foil-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--mid);
+  cursor: pointer;
+  user-select: none;
+}
+.foil-toggle input { accent-color: var(--red); cursor: pointer; width: 14px; height: 14px; }
+
+/* Table caption */
+.table-caption {
+  font-size: 0.76rem;
+  color: var(--mid);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.table-caption strong { color: var(--text); }
+
+/* Placeholder table */
+.placeholder-table {
+  background: var(--light);
+  border: 2px dashed var(--rule);
+  border-radius: 4px;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.82rem;
+  margin: 1.25rem 0;
+}
+.placeholder-table strong { display: block; color: var(--mid); margin-bottom: 0.3rem; font-size: 0.9rem; }
+
+/* ── Stat chips ── */
+.stat-row { display: flex; gap: 0.6rem; margin: 0.9rem 0; flex-wrap: wrap; }
+.stat {
+  flex: 1; min-width: 90px;
+  background: var(--light);
+  border-left: 3px solid var(--red);
+  border-radius: 0 4px 4px 0;
+  padding: 0.55rem 0.8rem;
+}
+.stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--red);
+  line-height: 1.1;
+}
+.stat span { font-size: 0.75rem; color: var(--mid); }
+
+/* ── Data inline highlight ── */
+.data {
+  font-size: 0.88em;
+  background: var(--light);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  color: var(--text);
+}
+
+/* ── Tags ── */
+.tags { margin-top: 0.85rem; }
+.tag {
+  display: inline-block;
+  background: var(--light);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  margin: 0.15rem 0.1rem 0;
+  color: var(--mid);
+}
+
+/* ── References ── */
+.ref-list { list-style: none; padding: 0; margin-top: 0.6rem; }
+.ref-list li {
+  font-size: 0.76rem;
+  color: #777;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+}
+.ref-list li:last-child { border-bottom: none; }
+.ref-list a { color: var(--red); text-decoration: none; word-break: break-all; }
+
+/* ── Footer ── */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .site-title { font-size: 1rem; }
+  .uc-logo { width: 40px; }
+  .fig-row { flex-direction: column; }
+  .fig-row figure { min-width: unset; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     STICKY HEADER
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <img class="uc-logo"
+      src="https://www.canterbury.ac.nz/content/uoc-main-site/language-master/en/about-uc/our-story/our-history/history-of-the-coat-of-arms/_jcr_content/root/container-content/columncontrol/container/image.coreimg.jpeg/1689207686734/coat-of-arms-uc.jpeg"
+      alt="University of Canterbury" onerror="this.style.display='none'">
+    <div class="header-text">
+      <div class="conf-tag">WCA 2026 &nbsp;·&nbsp; Poster PD 171</div>
+      <div class="site-title">Development of the UC4AFC Monosyllabic Word List</div>
+      <div class="authors">
+        <strong>Greg A. O'Beirne</strong>, Jayne Newbury, Gemma Anderson,
+        Eliza Riley, Hanson Chong, Sarah Murray, Toby Macrae &nbsp;·&nbsp;
+        University of Canterbury, New Zealand
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     TOGGLE BAR
+══════════════════════════════════════ -->
+<div class="toggle-bar">
+  <div class="toggle-inner">
+    <span class="toggle-label">View</span>
+    <div class="toggle-pill">
+      <button id="btn-bullets" class="active" onclick="setMode('bullets')">Bullet points</button>
+      <button id="btn-details" onclick="setMode('details')">Details</button>
+    </div>
+    <span class="toggle-hint">Switch anytime — figures stay put</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<main>
+
+  <!-- ── Abstract ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Abstract</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333">
+          Auditory processing disorder (APD) is characterized by a variety of symptoms that can present as listening difficulties despite normal peripheral hearing. The University of Canterbury Adaptive Speech test – Filtered Words (UCAST-FW; O'Beirne et al., 2012; Rickard et al., 2013) is an adaptive low-pass filtered speech test for use in APD assessment. However, it originally used North American stimuli (the NU-CHIPS) which are less suitable for New Zealand and Australian children.
+        </p>
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333;margin-top:0.85em">
+          To address this, we have created the UC4AFC monosyllabic word list using phonemic contrasts more appropriate for New Zealand and Australian varieties of English. We developed an initial list of 98 target words, each with three phonemic, semantic, or unrelated foils, recorded in audio and video formats. Four candidate images per item were evaluated by adults (n=43); spontaneous naming was assessed in 4-year-olds (n=30); and receptive picture-pointing was tested in 4-year-olds (n=45). Combining paediatric data with adult psychometric data (n=35) for low-pass-filtered stimuli, we selected a final word list of 66 items across two balanced lists. The UC4AFC provides robust four-alternative monosyllabic stimuli more suitable for NZ and Australian children, enabling more accurate paediatric evaluation of speech discrimination and APD.
+        </p>
+        <div style="margin-top:0.85rem;padding-top:0.75rem;border-top:1px solid var(--rule);font-size:0.77rem;color:var(--mid)">
+          <strong style="color:var(--text)">Keywords:</strong> Auditory processing · Pediatrics · Speech testing
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Introduction ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Introduction</span>
+          <span class="sec-title">Background &amp; Motivation</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <div class="bullets">
+          <ul>
+            <li>Auditory processing disorder (APD) may present as listening difficulties despite normal peripheral hearing</li>
+            <li>The UCAST-FW (O'Beirne et al., 2012; Rickard et al., 2013) is an adaptive low-pass-filtered speech test used in APD assessment</li>
+            <li>Original UCAST-FW stimuli (NU-CHIPS) are less suitable for NZ/Australian children</li>
+            <li>The UC4AFC monosyllabic word list was developed using NZ/Australian English phonemic contrasts</li>
+            <li>Initial 98-word list (Murray &amp; O'Beirne, 2012) included:
+              <ul>
+                <li>One target word</li>
+                <li>Two phonemic foils</li>
+                <li>One semantic or phonemically-unrelated foil</li>
+              </ul>
+            </li>
+            <li>Three refinement and validation studies are summarised here, supporting paediatric clinical use</li>
+          </ul>
+        </div>
+
+        <div class="details-text">
+          <p>Auditory processing disorder (APD) is characterized by a variety of symptoms that can present as listening difficulties despite normal peripheral hearing. The University of Canterbury Adaptive Speech test – Filtered Words (UCAST-FW; O'Beirne et al., 2012; Rickard et al., 2013) is an adaptive low-pass filtered speech test for use in APD assessment. However, it originally used North American stimuli (the NU-CHIPS) which are less suitable for New Zealand and Australian children.</p>
+          <p>To address this, we created the University of Canterbury Four-Alternative Forced Choice (UC4AFC) monosyllabic word list using phonemic contrasts more appropriate for New Zealand and Australian varieties of English. The initial 98-word list (created by Murray and O'Beirne; Murray, 2012) consisted of target words, two phonemic foils, and a third foil that was either semantically-related or phonemically-unrelated to the target. Here we summarise a series of recent refinement and validation studies to enable the clinical paediatric use of the UC4AFC word list, including in the UCAST-FW.</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Study 1 ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Study 1</span>
+          <span class="sec-title">Recording Words &amp; Selecting Images <span style="font-weight:400;color:var(--mid)">(Anderson, 2024)</span></span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <!-- Objectives -->
+        <div class="sub-h">Objectives</div>
+
+        <div class="bullets">
+          <ul>
+            <li>Select representative images for each of the 98 target words</li>
+            <li>Create audiovisual recordings for future AV-integration studies</li>
+            <li>Evaluate low-pass-filter intelligibility characteristics of the recordings</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>The study had three objectives: (i) to select four candidate images for each word and identify the most representative image for each UC4AFC target word; (ii) to create audiovisual recordings of the UC4AFC wordlist to allow for future auditory-visual integration studies; and (iii) to determine intelligibility functions for the recorded words under low-pass filtering conditions.</p>
+        </div>
+
+        <!-- Figure 1 -->
+        <figure>
+          <img src="Figure01.png" alt="Audiovisual recording setup showing lighting, microphone, video camera, and autocue, with a post-processed frame shown on a tablet below">
+          <figcaption><strong>Figure 1.</strong> Audiovisual recording process. Top: recording setup showing lighting, microphone, video camera, and autocue. Bottom: post-processed frame as displayed on tablet during testing.</figcaption>
+        </figure>
+
+        <!-- Method -->
+        <div class="sub-h">Method</div>
+
+        <div class="bullets">
+          <ul>
+            <li>392 candidate images collected (4 per target word), from freely available licensable sources</li>
+            <li>43 adults selected the "best image for children &lt;12 years" via online survey</li>
+            <li>Audiovisual recordings created for all target words</li>
+            <li>35 adults completed auditory-alone identification under 8–9 low-pass filter conditions (200–1500 Hz cut-off)</li>
+            <li>Responses collected in:
+              <ul>
+                <li>Open-set format (participant repeated the word)</li>
+                <li>Closed-set 4AFC format (participant selected from four alternatives)</li>
+              </ul>
+            </li>
+            <li>Data used to evaluate low-pass-filter psychometric characteristics for word list normalisation</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>A total of 392 candidate images (4 images × 98 target words) were obtained from freely available licensable sources. Forty-three adults completed an online survey in which they selected the image they thought best represented each target word for children under 12 years of age.</p>
+          <p>Audiovisual recordings were created for all target words. Following a 15-item practice session, 35 adults identified the recorded words presented auditory-alone under 8–9 low-pass filter conditions (200–1500 Hz cut-off frequencies). Responses were collected in both open-set format (participant repeated the word) and closed-set format (participant selected from four alternatives). These data were used to evaluate low-pass-filter psychometric characteristics of the word list.</p>
+        </div>
+
+        <!-- Figures 2 & 3 -->
+        <div class="fig-row">
+          <figure>
+            <img src="Figure02.png" alt="Example vote distributions for candidate images of gate, pig, boat, and goat, showing percentage of adult votes for each of four candidate images">
+            <figcaption><strong>Figure 2.</strong> Example vote distributions for candidate image sets. For each target word, adults selected the image they felt best represented that word for children. Results shown for <em>gate</em>, <em>pig</em>, <em>boat</em>, and <em>goat</em>.</figcaption>
+          </figure>
+          <figure>
+            <img src="Figure03.png" alt="Finalised UC4AFC test plate for the target word goat, showing four images: goat, boat, gate, and pig arranged in a 2x2 grid on a tablet">
+            <figcaption><strong>Figure 3.</strong> A finalised UC4AFC test plate for the target word <em>goat</em>, with phonemic foils <em>boat</em> and <em>gate</em>, and semantic foil <em>pig</em>.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Results -->
+        <div class="sub-h">Results</div>
+
+        <div class="bullets">
+          <ul>
+            <li>Strong image agreement observed for several target words:
+              <ul>
+                <li>chalk (98%), comb (95%), cap (86%), dirt (81%), leg (81%)</li>
+              </ul>
+            </li>
+            <li>Low-pass-filter results informed later item selection for the finalised lists</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>Strong image agreement was observed for several target words, including: chalk (<span class="data">98%</span>), comb (<span class="data">95%</span>), cap (<span class="data">86%</span>), dirt (<span class="data">81%</span>), and leg (<span class="data">81%</span>). These findings supported selection of final image stimuli for subsequent validation studies. Low-pass-filter results were subsequently used to inform item selection for the finalised word lists.</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Study 2 ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Study 2</span>
+          <span class="sec-title">Spontaneous Naming by 4-Year-Olds <span style="font-weight:400;color:var(--mid)">(Chong, 2025)</span></span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <!-- Objectives -->
+        <div class="sub-h">Objectives</div>
+
+        <div class="bullets">
+          <ul>
+            <li>Evaluate whether four-year-olds consistently produced the intended labels for UC4AFC images</li>
+            <li>Quantify variability in naming responses and naming latency</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>To evaluate whether four-year-old children consistently produced the intended labels for UC4AFC images, and to quantify variability in naming responses.</p>
+        </div>
+
+        <!-- Method -->
+        <div class="sub-h">Method</div>
+
+        <div class="bullets">
+          <ul>
+            <li>30 four-year-old children from low socioeconomic backgrounds</li>
+            <li>Children viewed 98 selected UC4AFC images + 17 alternative candidate images, in random order</li>
+            <li>Images preceded by audio prompts ("This is…", "These are…", "This person is…", etc.)</li>
+            <li>A 1 kHz beep synchronised with image presentation (SE = 7.4 ms) enabled latency measurement</li>
+            <li>Analyses included:
+              <ul>
+                <li><em>Intended name agreement</em> — proportion producing the target label</li>
+                <li><em>Target word inclusion</em> — target word contained within a longer response</li>
+                <li><em>Naming diversity</em> — entropy statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980), expressed as % of theoretical maximum</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>Thirty four-year-old children attending a preschool in a low socioeconomic area participated. Children were shown the 98 adult-selected images from Anderson (2024), along with 17 alternative candidate images. Images were presented in random order and preceded by audio prompts such as <em>'This is'</em>, <em>'This is a'</em>, <em>'These are'</em>, <em>'This person likes to'</em>, and <em>'This person is'</em>. A 1 kHz beep occurred near-simultaneously with image presentation (SE = 7.4 ms), enabling measurement of naming latency from the session audio recordings.</p>
+          <p>Intended name agreement was calculated as the proportion of children producing the target label for each image. Target word inclusion was additionally calculated when the target word was contained within a longer response. Naming variability was quantified using the information statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980), where <em>k</em> is the number of unique names assigned to an image and <em>p<sub>i</sub></em> is the proportion of participants providing each name. <em>H</em> values are expressed as percentages of the theoretical maximum entropy (log₂ 30 = 4.91).</p>
+        </div>
+
+        <!-- Figure 4 -->
+        <figure>
+          <img src="Figure04.png" alt="Scatter plot of normalised naming diversity (y-axis, 0–100%) versus intended name agreement (x-axis, 0–100%), with annotated regions for poor uniformity/low agreement, high uniformity/low agreement, and high uniformity/high agreement">
+          <figcaption><strong>Figure 4.</strong> Intended name agreement and normalised naming diversity for each of the 98 UC4AFC images. Points marked × represent exact matches with the intended name; + represents cases where the intended name was included within a longer response. Annotated regions reflect distinct patterns of naming performance.</figcaption>
+        </figure>
+
+        <!-- Figure 5 -->
+        <figure>
+          <img src="Figure05.png" alt="Scatter plot of target word inclusion (y-axis, 0–100%) versus median naming latency in seconds (x-axis, 0–3s). Green points indicate target word inclusion at or above 25%; red points indicate below 25%. A dotted green trend line shows R-squared of 0.56; a dashed red trend line shows R-squared of 0.00.">
+          <figcaption><strong>Figure 5.</strong> Median naming latency and target word inclusion for each UC4AFC image. Items with target word inclusion ≥25% (green) showed a strong negative relationship with latency (R² = 0.56), while items with target word inclusion &lt;25% (red) showed no such relationship (R² = 0.00).</figcaption>
+        </figure>
+
+        <!-- Results -->
+        <div class="sub-h">Results</div>
+
+        <div class="bullets">
+          <ul>
+            <li>Naming diversity ranged from near 0% (high agreement, low variability) to ~90% of theoretical maximum entropy (low agreement, high variability)</li>
+            <li>Strong positive relationship between naming diversity and intended name agreement for exact matches (R² = 0.56)</li>
+            <li>No such relationship for target word inclusion (R² = 0.00)</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>Normalised naming diversity ranged from near 0% (high intended name agreement and low naming variability) to approximately 90%, reflecting greater diversity of naming responses (Bartos et al., 2022). There was a strong positive relationship between normalised naming diversity and intended name agreement for exact name matches (R² = 0.56), but no such relationship for target word inclusion (R² = 0.00).</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Study 3 ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Study 3</span>
+          <span class="sec-title">Receptive Identification by 4-Year-Olds <span style="font-weight:400;color:var(--mid)">(Riley, 2026)</span></span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <!-- Objective -->
+        <div class="sub-h">Objective</div>
+
+        <div class="bullets">
+          <ul>
+            <li>Determine whether four-year-olds could accurately and rapidly identify intended targets in 4AFC format</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>To evaluate whether 4-year-old children could accurately and rapidly identify the intended target items in the UC4AFC four-alternative forced-choice format.</p>
+        </div>
+
+        <!-- Method -->
+        <div class="sub-h">Method</div>
+
+        <div class="bullets">
+          <ul>
+            <li>45 four-year-old children from low-to-mid socioeconomic backgrounds</li>
+            <li>Completed receptive 4AFC task using all 98 UC4AFC image sets</li>
+            <li>Children selected the image corresponding to each recorded target word</li>
+            <li>Both identification accuracy and response latency recorded for all 98 items</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>Forty-five four-year-old children from low-to-mid socioeconomic backgrounds completed a receptive four-alternative forced-choice task using the 98 UC4AFC image sets. Children selected the image corresponding to each recorded target word, enabling measurement of identification accuracy and response latency.</p>
+        </div>
+
+        <!-- Figure 6 -->
+        <figure>
+          <img src="Figure06.png" alt="Scatter plot of proportion correct (y-axis, 0–100%) versus median latency in seconds (x-axis, 2.0–4.5s) for each of the 98 target words. Words in green were retained; words in red were removed due to less than 75% accuracy or greater than 3.5 second latency. Dashed lines mark the 75% accuracy and 3.5s latency thresholds.">
+          <figcaption><strong>Figure 6.</strong> Median receptive identification latency versus proportion correctly identified for each of the 98 UC4AFC target items. Words shown in green met both inclusion criteria (≥75% accuracy, median latency &lt;3.5 s); those in red fell below the accuracy threshold (horizontal dashed line) or exceeded the latency threshold (vertical dashed line).</figcaption>
+        </figure>
+
+        <!-- Results -->
+        <div class="sub-h">Results</div>
+
+        <div class="bullets">
+          <ul>
+            <li>~75% of items achieved both ≥75% identification accuracy and median latency &lt;3.5 s</li>
+            <li>These items identified as strong candidates for final inclusion</li>
+            <li>Poorer-performing items considered for exclusion</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>Approximately three quarters of the items demonstrated both high identification accuracy (&gt;75%) and short response latencies (&lt;3.5 s). These items were identified as strong candidates for inclusion in the finalised UC4AFC word lists, while poorer-performing items were considered for exclusion.</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Final list composition ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Final List</span>
+          <span class="sec-title">Final List Composition</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <div class="stat-row">
+          <div class="stat"><strong>66</strong><span>final target words</span></div>
+          <div class="stat"><strong>2</strong><span>balanced lists</span></div>
+          <div class="stat"><strong>33</strong><span>items per list</span></div>
+        </div>
+
+        <div class="bullets">
+          <ul>
+            <li>Final inclusion decisions incorporated:
+              <ul>
+                <li>Low-pass filter normalisation results (Anderson, 2024)</li>
+                <li>Expressive naming results (Chong, 2025)</li>
+                <li>Receptive identification results (Riley, 2026)</li>
+                <li>Phonemic foil balance requirements</li>
+              </ul>
+            </li>
+            <li>No included target words fell below 75% correct on receptive testing</li>
+            <li>Only <em>chin</em> and <em>ship</em> exceeded 3.5 s median receptive latency</li>
+            <li>Poor spontaneous naming did not necessarily predict poor receptive identification:
+              <ul>
+                <li>Ten included items had &lt;25% expressive target-word inclusion (<em>night, nurse, coat, knees, boot, ship, seed, lick, cot, head</em>)</li>
+                <li>These items still achieved 85% ± 5% receptive accuracy</li>
+              </ul>
+            </li>
+            <li>Expressive and receptive latencies showed weak but significant correlation (r = .35, p &lt; .01)</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>The final inclusion/exclusion decisions factored in the low-pass-filter normalisation results of Anderson (2024), the expressive results of Chong (2025), the receptive results of Riley (2026), and essential phonemic foil requirements.</p>
+          <p>Of the target words included, none fell below 75% correct on the four-year-old receptive task, and only two items (<em>chin</em> and <em>ship</em>) had median latencies over 3.5 s. The ten included words that had lower than 25% target word inclusion on the four-year-old expressive task (<em>night, nurse, coat, knees, boot, ship, seed, lick, cot,</em> and <em>head</em>) scored <span class="data">85% ± 5%</span> correct on the receptive task, indicating that poorer spontaneous naming performance did not necessarily predict poorer receptive identification performance. The expressive and receptive median latencies were significantly but weakly correlated (<span class="data">r = .35, p &lt; .01</span>).</p>
+        </div>
+
+        <!-- Table 1 -->
+        <div class="sub-h" style="margin-top:1.25rem">Table 1 — The Two Finalised UC4AFC Word Lists</div>
+
+        <div class="table-controls">
+          <div class="tab-group">
+            <button id="tab-set1" class="active" onclick="showSet(1)">Set 1</button>
+            <button id="tab-set2" onclick="showSet(2)">Set 2</button>
+          </div>
+          <label class="foil-toggle">
+            <input type="checkbox" id="foil-toggle-cb" onchange="toggleFoilCols()">
+            Show foil categories
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table id="table1">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Target</th>
+                <th>Foil 1</th>
+                <th>Foil 2</th>
+                <th>Foil 3</th>
+                <th class="foil-col">Target–Foil 1</th>
+                <th class="foil-col">Target–Foil 2</th>
+                <th class="foil-col">Target–Foil 3</th>
+              </tr>
+            </thead>
+            <tbody id="table1-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Tables 2 & 3 placeholder -->
+        <div class="sub-h" style="margin-top:1.5rem">Tables 2 &amp; 3 — Foil Categories &amp; Target Vowels</div>
+        <div class="placeholder-table">
+          <strong>Placeholder — Tables 2 &amp; 3</strong>
+          Foil category counts (Set 1 / Set 2 / Total) and target vowel distribution will be added when the Word doc is supplied.
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Conclusion ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Conclusion</span>
+          <span class="sec-title">Summary &amp; Implications</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <div class="bullets">
+          <ul>
+            <li>The UC4AFC provides robust four-alternative monosyllabic stimuli more suitable for NZ and Australian children than previous North American materials</li>
+            <li>These findings support its use in paediatric speech discrimination assessment and future APD evaluation</li>
+          </ul>
+        </div>
+        <div class="details-text">
+          <p>The UC4AFC provides robust four-alternative monosyllabic stimuli that are more suitable for New Zealand and Australian children than previous North American materials. These findings support its use in paediatric speech discrimination assessment and future APD evaluation.</p>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Auditory processing</span>
+          <span class="tag">Pediatrics</span>
+          <span class="tag">Speech testing</span>
+          <span class="tag">New Zealand</span>
+          <span class="tag">Australia</span>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── References ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">References</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+        <ul class="ref-list">
+          <li>Anderson G, 2024. Recording and normalisation of the UC-4AFC monosyllabic word list. MAud thesis. <a href="https://doi.org/10.26021/15303">doi:10.26021/15303</a></li>
+          <li>Bartos A, Hohinova M, &amp; Holla M, 2022. High electronic name agreement of 70 pictures in normative study of 5,290 Czechs for easy multicultural replication. <em>Applied Neuropsychology: Adult</em>, 29(3), 333–344. <a href="https://doi.org/10.1080/23279095.2020.1753744">doi:10.1080/23279095.2020.1753744</a></li>
+          <li>Chong H, 2025. Spontaneous paediatric naming of images in the UC-4AFC Wordlist. MAud thesis. <a href="https://doi.org/10.26021/15880">doi:10.26021/15880</a></li>
+          <li>Murray SL, 2012. Development of a New Zealand four-alternative forced-choice word list. MAud thesis. <a href="http://doi.org/10.26021/8804">doi:10.26021/8804</a></li>
+          <li>O'Beirne GA, McGaffin AJ, Rickard NA, 2012. Development of an adaptive low-pass filtered speech test for the identification of auditory processing disorders. <em>International Journal of Pediatric Otorhinolaryngology</em>, 76(6):777–782. <a href="https://doi.org/10.1016/j.ijporl.2012.02.039">doi:10.1016/j.ijporl.2012.02.039</a></li>
+          <li>Rickard NA, Heidtke UJ, O'Beirne GA, 2013. Assessment of auditory processing disorder in children using an adaptive filtered speech test. <em>International Journal of Audiology</em>, 52(10):687–697. <a href="https://doi.org/10.3109/14992027.2013.802380">doi:10.3109/14992027.2013.802380</a></li>
+          <li>Riley E, 2026. Verification of the New UC-4AFC Word and Picture List. MAud thesis. <a href="https://doi.org/10.26021/16396">doi:10.26021/16396</a></li>
+          <li>Snodgrass JG &amp; Vanderwart M, 1980. A standardized set of 260 pictures: norms for name agreement, image agreement, familiarity, and visual complexity. <em>Journal of Experimental Psychology: Human Learning and Memory</em>, 6(2):174–215. <a href="https://doi.org/10.1037/0278-7393.6.2.174">doi:10.1037/0278-7393.6.2.174</a></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+</main>
+
+<footer>
+  37th World Congress of Audiology &nbsp;·&nbsp; Copyright of the WCA 2026<br>
+  University of Canterbury · Te Whare Wānanga o Waitaha · Christchurch, New Zealand<br>
+  COI: None declared
+</footer>
+
+<script>
+/* ══════════════════════════════════════
+   BULLET / DETAIL TOGGLE
+══════════════════════════════════════ */
+function setMode(mode) {
+  if (mode === 'details') {
+    document.body.classList.add('show-details');
+    document.getElementById('btn-details').classList.add('active');
+    document.getElementById('btn-bullets').classList.remove('active');
+  } else {
+    document.body.classList.remove('show-details');
+    document.getElementById('btn-bullets').classList.add('active');
+    document.getElementById('btn-details').classList.remove('active');
+  }
+}
+
+/* ══════════════════════════════════════
+   TABLE 1 DATA & RENDERING
+══════════════════════════════════════ */
+const set1 = [
+  [1,  'lock',   'sock',   'lick',   'knees',  'V, Final C',       'Initial C, Final C', 'Unrelated'],
+  [2,  'kite',   'night',  'cot',    'chalk',  'V, Final C',       'Initial C, Final C', 'Semantic'],
+  [3,  'coat',   'boat',   'kite',   'sock',   'V, Final C',       'Initial C, Final C', 'Semantic'],
+  [4,  'bat',    'hat',    'back',   'duck',   'V, Final C',       'Initial C, V',       'Semantic'],
+  [5,  'keys',   'knees',  'sheep',  'house',  'V, Final C',       'V',                  'Semantic'],
+  [6,  'feet',   'meat',   'seed',   'nose',   'V, Final C',       'V',                  'Semantic'],
+  [7,  'shirt',  'dirt',   'shark',  'bin',    'V, Final C',       'Initial C',          'Unrelated'],
+  [8,  'dirt',   'shirt',  'duck',   'card',   'V, Final C',       'Initial C',          'Unrelated'],
+  [9,  'fork',   'chalk',  'feet',   'nose',   'V, Final C',       'Initial C',          'Unrelated'],
+  [10, 'sad',    'dad',    'sock',   'light',  'V, Final C',       'Initial C',          'Unrelated'],
+  [11, 'bin',    'chin',   'bug',    'shark',  'V, Final C',       'Initial C',          'Unrelated'],
+  [12, 'house',  'mouse',  'head',   'gate',   'V, Final C',       'Initial C',          'Semantic'],
+  [13, 'sock',   'rock',   'seed',   'boot',   'V, Final C',       'Initial C',          'Semantic'],
+  [14, 'boat',   'coat',   'bike',   'shark',  'V, Final C',       'Initial C',          'Semantic'],
+  [15, 'chip',   'chin',   'chalk',  'nurse',  'Initial C, V',     'Initial C',          'Unrelated'],
+  [16, 'night',  'knife',  'coat',   'leaf',   'Initial C, V',     'Final C',            'Unrelated'],
+  [17, 'back',   'bag',    'bike',   'shirt',  'Initial C, V',     'Initial C, Final C', 'Semantic'],
+  [18, 'heart',  'card',   'hat',    'nose',   'V',                'Initial C, Final C', 'Semantic'],
+  [19, 'seed',   'keys',   'sword',  'dirt',   'V',                'Initial C, Final C', 'Semantic'],
+  [20, 'book',   'hood',   'bike',   'heart',  'V',                'Initial C, Final C', 'Unrelated'],
+  [21, 'duck',   'bus',    'dog',    'feet',   'V',                'Initial C, Final C', 'Unrelated'],
+  [22, 'gate',   'cake',   'goat',   'bone',   'V',                'Initial C, Final C', 'Unrelated'],
+  [23, 'sword',  'fork',   'sad',    'mum',    'V',                'Initial C, Final C', 'Unrelated'],
+  [24, 'card',   'heart',  'bird',   'leaf',   'V',                'Final C',            'Unrelated'],
+  [25, 'road',   'boat',   'sword',  'shirt',  'V',                'Final C',            'Unrelated'],
+  [26, 'pig',    'bin',    'leg',    'sheep',  'V',                'Final C',            'Semantic'],
+  [27, 'tongue', 'bug',    'king',   'chip',   'V',                'Final C',            'Semantic'],
+  [28, 'dog',    'rock',   'dad',    'sheep',  'V',                'Initial C',          'Semantic'],
+  [29, 'pen',    'leg',    'pig',    'chalk',  'V',                'Initial C',          'Semantic'],
+  [30, 'leaf',   'knees',  'lock',   'man',    'V',                'Initial C',          'Unrelated'],
+  [31, 'man',    'sad',    'mouse',  'shark',  'V',                'Initial C',          'Unrelated'],
+  [32, 'mum',    'bus',    'mouse',  'lock',   'V',                'Initial C',          'Unrelated'],
+  [33, 'leg',    'pen',    'lick',   'shop',   'V',                'Initial C',          'Unrelated'],
+];
+
+const set2 = [
+  [1,  'bug',    'hug',    'bag',    'hood',   'V, Final C',       'Initial C, Final C', 'Unrelated'],
+  [2,  'goat',   'boat',   'gate',   'pig',    'V, Final C',       'Initial C, Final C', 'Semantic'],
+  [3,  'cat',    'hat',    'cot',    'bird',   'V, Final C',       'Initial C, Final C', 'Semantic'],
+  [4,  'chin',   'bin',    'chip',   'back',   'V, Final C',       'Initial C, V',       'Semantic'],
+  [5,  'knees',  'keys',   'leaf',   'head',   'V, Final C',       'V',                  'Semantic'],
+  [6,  'ship',   'chip',   'lick',   'hug',    'V, Final C',       'V',                  'Unrelated'],
+  [7,  'hat',    'bat',    'house',  'lick',   'V, Final C',       'Initial C',          'Unrelated'],
+  [8,  'hug',    'bug',    'hat',    'seed',   'V, Final C',       'Initial C',          'Unrelated'],
+  [9,  'rock',   'sock',   'road',   'boot',   'V, Final C',       'Initial C',          'Unrelated'],
+  [10, 'meat',   'feet',   'mouse',  'dad',    'V, Final C',       'Initial C',          'Unrelated'],
+  [11, 'light',  'kite',   'leg',    'house',  'V, Final C',       'Initial C',          'Semantic'],
+  [12, 'dad',    'sad',    'dirt',   'mum',    'V, Final C',       'Initial C',          'Semantic'],
+  [13, 'chalk',  'fork',   'chin',   'pen',    'V, Final C',       'Initial C',          'Semantic'],
+  [14, 'mouse',  'house',  'man',    'cat',    'V, Final C',       'Initial C',          'Semantic'],
+  [15, 'bone',   'boat',   'book',   'tap',    'Initial C, V',     'Initial C',          'Unrelated'],
+  [16, 'bag',    'bat',    'hug',    'meat',   'Initial C, V',     'Final C',            'Unrelated'],
+  [17, 'boot',   'bag',    'bat',    'feet',   'Initial C',        'Initial C, Final C', 'Semantic'],
+  [18, 'sheep',  'meat',   'shop',   'dog',    'V',                'Initial C, Final C', 'Semantic'],
+  [19, 'bike',   'light',  'book',   'road',   'V',                'Initial C, Final C', 'Semantic'],
+  [20, 'lick',   'ship',   'lock',   'sword',  'V',                'Initial C, Final C', 'Unrelated'],
+  [21, 'cot',    'rock',   'cat',    'bone',   'V',                'Initial C, Final C', 'Unrelated'],
+  [22, 'shop',   'cot',    'ship',   'head',   'V',                'Initial C, Final C', 'Unrelated'],
+  [23, 'bus',    'duck',   'nurse',  'tap',    'V',                'Final C',            'Unrelated'],
+  [24, 'hood',   'book',   'bird',   'knife',  'V',                'Final C',            'Unrelated'],
+  [25, 'nurse',  'bird',   'bus',    'seed',   'V',                'Final C',            'Unrelated'],
+  [26, 'nose',   'coat',   'keys',   'tongue', 'V',                'Final C',            'Semantic'],
+  [27, 'king',   'bin',    'tongue', 'sword',  'V',                'Final C',            'Semantic'],
+  [28, 'knife',  'light',  'night',  'cake',   'V',                'Initial C, V',       'Semantic'],
+  [29, 'shark',  'heart',  'shop',   'goat',   'V',                'Initial C',          'Semantic'],
+  [30, 'cake',   'gate',   'king',   'tongue', 'V',                'Initial C',          'Semantic'],
+  [31, 'tap',    'back',   'tongue', 'dog',    'V',                'Initial C',          'Unrelated'],
+  [32, 'head',   'leg',    'heart',  'boot',   'V',                'Initial C',          'Unrelated'],
+  [33, 'bird',   'nurse',  'boot',   'tap',    'V',                'Initial C',          'Unrelated'],
+];
+
+let currentSet = 1;
+
+function renderTable(setNum) {
+  const data = setNum === 1 ? set1 : set2;
+  const tbody = document.getElementById('table1-body');
+  const showFoils = document.getElementById('foil-toggle-cb').checked;
+  tbody.innerHTML = data.map(r => `
+    <tr>
+      <td>${r[0]}</td>
+      <td><strong>${r[1]}</strong></td>
+      <td>${r[2]}</td>
+      <td>${r[3]}</td>
+      <td>${r[4]}</td>
+      <td class="foil-col${showFoils ? ' visible' : ''}">${r[5]}</td>
+      <td class="foil-col${showFoils ? ' visible' : ''}">${r[6]}</td>
+      <td class="foil-col${showFoils ? ' visible' : ''}">${r[7]}</td>
+    </tr>`).join('');
+}
+
+function showSet(n) {
+  currentSet = n;
+  document.getElementById('tab-set1').classList.toggle('active', n === 1);
+  document.getElementById('tab-set2').classList.toggle('active', n === 2);
+  renderTable(n);
+}
+
+function toggleFoilCols() {
+  renderTable(currentSet);
+}
+
+// Initial render
+renderTable(1);
+</script>
+
+</body>
+</html>
