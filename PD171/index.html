@@ -504,6 +504,63 @@ td.fc-unr    { background: var(--fc-unr)  !important; }
   color: var(--mid);
   margin-bottom: 0.35rem;
 }
+/* ── Inline formula ── */
+p.formula {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1;
+  text-align: center;
+  margin: 1.1em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18em;
+  flex-wrap: wrap;
+}
+.sigma {
+  font-size: 1.7em;
+  line-height: 1;
+  position: relative;
+  top: 0.05em;
+}
+.sigma-limits {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.62em;
+  line-height: 1.25;
+  margin: 0 0.1em 0 0.05em;
+  vertical-align: middle;
+}
+.sigma-limits sup, .sigma-limits sub {
+  font-size: 1em;
+  position: static;
+  vertical-align: baseline;
+}
+.frac-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.05em;
+  font-size: 0.82em;
+  line-height: 1.2;
+}
+.frac-num {
+  border-bottom: 1px solid currentColor;
+  padding: 0 0.15em 0.1em;
+  text-align: center;
+}
+.frac-den {
+  padding: 0.1em 0.15em 0;
+  text-align: center;
+}
+
 .stat-row { display: flex; gap: 0.6rem; margin: 0.9rem 0; flex-wrap: wrap; }
 .stat {
   flex: 1; min-width: 90px;
@@ -810,7 +867,11 @@ footer {
         </div>
         <div class="details-text">
           <p>Thirty four-year-old children attending a preschool in a low socioeconomic area participated. Children were shown the 98 adult-selected images from Anderson (2024), along with 17 alternative candidate images. Images were presented in random order and preceded by audio prompts such as <em>'This is'</em>, <em>'This is a'</em>, <em>'These are'</em>, <em>'This person likes to'</em>, and <em>'This person is'</em>. A 1 kHz beep occurred near-simultaneously with image presentation (SE = 7.4 ms), enabling measurement of naming latency from the session audio recordings.</p>
-          <p>Intended name agreement was calculated as the proportion of children producing the target label for each image. Target word inclusion was additionally calculated when the target word was contained within a longer response. Naming variability was quantified using the information statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980), where <em>k</em> is the number of unique names assigned to an image and <em>p<sub>i</sub></em> is the proportion of participants providing each name. <em>H</em> values are expressed as percentages of the theoretical maximum entropy (log₂ 30 = 4.91).</p>
+          <p>Intended name agreement was calculated as the proportion of children producing the target label for each image. Target word inclusion was additionally calculated when the target word was contained within a longer response. Naming variability was quantified using the information statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980):</p>
+          <p class="formula">
+            <em>H</em> = <span class="sigma">Σ</span><span class="sigma-limits"><sup><em>k</em></sup><sub><em>i</em>=1</sub></span> <em>p</em><sub><em>i</em></sub> log<sub>2</sub><span class="frac-wrap">(<span class="frac"><span class="frac-num">1</span><span class="frac-den"><em>p</em><sub><em>i</em></sub></span></span>)</span>
+          </p>
+          <p>where <em>k</em> is the number of unique names assigned to an image and <em>p<sub>i</sub></em> is the proportion of participants providing each name. <em>H</em> values are expressed as percentages of the theoretical maximum entropy (log₂ 30 = 4.91).</p>
         </div>
 
         <!-- Figure 4 -->
