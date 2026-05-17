@@ -451,14 +451,14 @@ tbody tr:nth-child(even) td:not([class*="fc-"]) { background: #fafafa; }
 
 /* ── Foil category cell colours (matching poster) ── */
 :root {
-  --fc-vfc:    #FFF2CC; /* V, Final C       – amber/yellow   */
-  --fc-icfc:   #DAE8FC; /* Initial C, Final C – light blue   */
-  --fc-icv:    #D5E8D4; /* Initial C, V     – light green    */
-  --fc-v:      #E1D5E7; /* V only           – lavender       */
-  --fc-ic:     #D4EDDA; /* Initial C only   – mint           */
-  --fc-fc:     #FFE6CC; /* Final C only     – peach          */
-  --fc-sem:    #F8CECC; /* Semantic         – rose/pink      */
-  --fc-unr:    #E8E8E8; /* Unrelated        – light grey     */
+  --fc-vfc:    #92D050; /* V, Final C       – amber/yellow   */
+  --fc-icfc:   #FFC000; /* Initial C, Final C – light blue   */
+  --fc-icv:    #E6B9B8; /* Initial C, V     – light green    */
+  --fc-v:      #C5BE97; /* V only           – lavender       */
+  --fc-ic:     #F7C7AC; /* Initial C only   – mint           */
+  --fc-fc:     #B6DDE8; /* Final C only     – peach          */
+  --fc-sem:    #CCC0DA; /* Semantic         – rose/pink      */
+  --fc-unr:    #FDE9D9; /* Unrelated        – light grey     */
 }
 
 td.fc-vfc    { background: var(--fc-vfc)  !important; }
@@ -675,7 +675,7 @@ footer {
       <div class="conf-tag">WCA 2026 &nbsp;·&nbsp; Poster PD 171</div>
       <div class="site-title">Development of the UC4AFC Monosyllabic Word List</div>
       <div class="authors">
-        <strong>Greg A. O'Beirne</strong>, Jayne Newbury, Gemma Anderson,
+        Greg A. O'Beirne, Jayne Newbury, Gemma Anderson,
         Eliza Riley, Hanson Chong, Sarah Murray, Toby Macrae &nbsp;·&nbsp;
         University of Canterbury, New Zealand
       </div>
@@ -1066,7 +1066,7 @@ footer {
             <button id="tab-set2" onclick="showSet(2)">Set 2</button>
           </div>
           <label class="foil-toggle">
-            <input type="checkbox" id="foil-toggle-cb" onchange="toggleFoilCols()">
+            <input type="checkbox" id="foil-toggle-cb" checked onchange="toggleFoilCols()">
             Show foil categories
           </label>
         </div>
@@ -1234,7 +1234,7 @@ footer {
 </main>
 
 <footer>
-  37th World Congress of Audiology &nbsp;·&nbsp; Copyright of the WCA 2026<br>
+  Poster presented at the 37th World Congress of Audiology &nbsp;·&nbsp; Copyright of the Authors<br>
   University of Canterbury · Te Whare Wānanga o Waitaha · Christchurch, New Zealand<br>
   COI: None declared
 </footer>
