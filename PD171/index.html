@@ -365,17 +365,22 @@ thead th {
   white-space: nowrap;
 }
 
+tbody tr {
+  border-bottom: 2px solid #000;
+}
+
 tbody td {
   padding: 0.42rem 0.75rem;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: none;
   color: var(--text);
   vertical-align: top;
 }
-tbody tr:last-child td { border-bottom: none; }
-tbody tr:nth-child(even) td { background: #fafafa; }
 
-.foil-col { display: none; }
-.foil-col.visible { display: table-cell; }
+tbody tr:last-child {
+  border-bottom: none;
+}
+/* Alternating rows — only on cells without a foil colour class */
+tbody tr:nth-child(even) td:not([class*="fc-"]) { background: #fafafa; }
 
 /* Table tabs */
 .table-controls {
@@ -464,6 +469,23 @@ td.fc-ic     { background: var(--fc-ic)   !important; }
 td.fc-fc     { background: var(--fc-fc)   !important; }
 td.fc-sem    { background: var(--fc-sem)  !important; }
 td.fc-unr    { background: var(--fc-unr)  !important; }
+
+/* Foil categories embedded inside Table 1 foil cells */
+#table1 td.foil-cell.with-foil-cat {
+  vertical-align: top;
+}
+#table1 .foil-word-main {
+  display: block;
+}
+#table1 .foil-cat {
+  display: block;
+  margin-top: 0.22rem;
+  padding-top: 0.18rem;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  font-size: 0.68rem;
+  line-height: 1.15;
+  color: #333;
+}
 
 /* Colour key swatch */
 .colour-key {
@@ -1058,9 +1080,6 @@ footer {
                 <th>Foil 1</th>
                 <th>Foil 2</th>
                 <th>Foil 3</th>
-                <th class="foil-col">Target–Foil 1</th>
-                <th class="foil-col">Target–Foil 2</th>
-                <th class="foil-col">Target–Foil 3</th>
               </tr>
             </thead>
             <tbody id="table1-body">
@@ -1202,7 +1221,7 @@ footer {
           <li>Anderson G, 2024. Recording and normalisation of the UC-4AFC monosyllabic word list. MAud thesis. <a href="https://doi.org/10.26021/15303">doi:10.26021/15303</a></li>
           <li>Bartos A, Hohinova M, &amp; Holla M, 2022. High electronic name agreement of 70 pictures in normative study of 5,290 Czechs for easy multicultural replication. <em>Applied Neuropsychology: Adult</em>, 29(3), 333–344. <a href="https://doi.org/10.1080/23279095.2020.1753744">doi:10.1080/23279095.2020.1753744</a></li>
           <li>Chong H, 2025. Spontaneous paediatric naming of images in the UC-4AFC Wordlist. MAud thesis. <a href="https://doi.org/10.26021/15880">doi:10.26021/15880</a></li>
-          <li>Murray SL, 2012. Development of a New Zealand four-alternative forced-choice word list. MAud thesis. <a href="http://doi.org/10.26021/8804">doi:10.26021/8804</a></li>
+          <li>Murray SL, 2012. Development of a New Zealand four-alternative forced-choice word list. MAud thesis. <a href="https://doi.org/10.26021/8804">doi:10.26021/8804</a></li>
           <li>O'Beirne GA, McGaffin AJ, Rickard NA, 2012. Development of an adaptive low-pass filtered speech test for the identification of auditory processing disorders. <em>International Journal of Pediatric Otorhinolaryngology</em>, 76(6):777–782. <a href="https://doi.org/10.1016/j.ijporl.2012.02.039">doi:10.1016/j.ijporl.2012.02.039</a></li>
           <li>Rickard NA, Heidtke UJ, O'Beirne GA, 2013. Assessment of auditory processing disorder in children using an adaptive filtered speech test. <em>International Journal of Audiology</em>, 52(10):687–697. <a href="https://doi.org/10.3109/14992027.2013.802380">doi:10.3109/14992027.2013.802380</a></li>
           <li>Riley E, 2026. Verification of the New UC-4AFC Word and Picture List. MAud thesis. <a href="https://doi.org/10.26021/16396">doi:10.26021/16396</a></li>
@@ -1355,21 +1374,24 @@ function renderTable(setNum) {
   const data = setNum === 1 ? set1 : set2;
   const tbody = document.getElementById('table1-body');
   const showFoils = document.getElementById('foil-toggle-cb').checked;
+
+  const foilCell = (word, rel) => {
+    const c = fcClass[rel] || '';
+    if (!showFoils) return `<td class="foil-cell">${word}</td>`;
+    return `<td class="foil-cell with-foil-cat ${c}">
+      <span class="foil-word-main">${word}</span>
+      <span class="foil-cat">${rel}</span>
+    </td>`;
+  };
+
   tbody.innerHTML = data.map(r => {
     // r: [#, target, foil1, foil2, foil3, rel1, rel2, rel3]
-    const c1 = fcClass[r[5]] || '';
-    const c2 = fcClass[r[6]] || '';
-    const c3 = fcClass[r[7]] || '';
-    const vis = showFoils ? ' visible' : '';
     return `<tr>
       <td>${r[0]}</td>
       <td><strong>${r[1]}</strong></td>
-      <td>${r[2]}</td>
-      <td>${r[3]}</td>
-      <td>${r[4]}</td>
-      <td class="foil-col${vis} ${c1}">${r[5]}</td>
-      <td class="foil-col${vis} ${c2}">${r[6]}</td>
-      <td class="foil-col${vis} ${c3}">${r[7]}</td>
+      ${foilCell(r[2], r[5])}
+      ${foilCell(r[3], r[6])}
+      ${foilCell(r[4], r[7])}
     </tr>`;
   }).join('');
 }
