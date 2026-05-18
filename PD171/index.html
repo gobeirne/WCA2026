@@ -888,7 +888,16 @@ footer {
               <ul>
                 <li><em>Intended name agreement</em> — proportion producing the target label</li>
                 <li><em>Target word inclusion</em> — target word contained within a longer response</li>
-                <li><em>Naming diversity</em> — entropy statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980), expressed as % of theoretical maximum</li>
+                <li><em>Naming diversity</em> — entropy statistic <em>H</em> (Snodgrass &amp; Vanderwart, 1980), expressed as % of theoretical maximum           <p class="formula">
+            <em>H</em> =
+            <span class="sigma-stack">
+              <span class="sigma-top"><em>k</em></span>
+              <span class="sigma-sym">Σ</span>
+              <span class="sigma-bot"><em>i</em> = 1</span>
+            </span>
+            <em>p</em><sub><em>i</em></sub>&thinsp;log<sub>2</sub><span class="frac-wrap">(<span class="frac"><span class="frac-num">1</span><span class="frac-den"><em>p</em><sub><em>i</em></sub></span></span>)</span>
+          </p>
+          <p>where <em>k</em> is the number of unique names assigned to an image and <em>p<sub>i</sub></em> is the proportion of participants providing each name. <em>H</em> values are expressed as percentages of the theoretical maximum entropy (log₂ 30 = 4.91).</p></li>
               </ul>
             </li>
           </ul>
