@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCA 2026 – PD 129 | Māori Language Ling Sound Test</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & variables ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:      #CC0000;
+  --red-dk:   #a80000;
+  --text:     #1c1c1c;
+  --mid:      #555;
+  --light:    #f4f4f4;
+  --white:    #ffffff;
+  --rule:     #e0e0e0;
+  --sans:     'Source Sans 3', sans-serif;
+  --serif:    'EB Garamond', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--light);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── Sticky header ── */
+.site-header {
+  background: var(--white);
+  border-top: 4px solid var(--red);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 1.25rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.uc-logo { width: 52px; flex-shrink: 0; margin-top: 2px; }
+
+.header-text { flex: 1; min-width: 0; }
+
+.conf-tag {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.25rem;
+}
+
+.site-title {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 3.2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.authors {
+  font-size: 0.76rem;
+  color: var(--mid);
+  line-height: 1.45;
+}
+.authors strong { color: var(--text); font-weight: 600; }
+
+/* ── Toggle bar — part of sticky header ── */
+.toggle-bar-outer {
+  margin: 0 -1.25rem;
+  padding: 0 1.25rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 0.65rem;
+}
+
+.toggle-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  justify-content: flex-end;
+}
+
+.toggle-pill {
+  display: flex;
+  background: var(--light);
+  border: 1.5px solid var(--rule);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+/* PDF button */
+.pdf-btn {
+  text-decoration: none;
+  color: var(--mid);
+  display: flex;
+}
+
+.pdf-btn span {
+  display: block;
+  padding: 0.28rem 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mid);
+  transition: background 0.15s, color 0.15s;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.pdf-btn:hover span {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* ── Main content ── */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 0 4rem;
+}
+
+/* ── Section cards ── */
+.card {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+.card:first-of-type { margin-top: 1rem; border-top: 1px solid var(--rule); }
+
+.card > details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  gap: 0.75rem;
+}
+.card > details > summary::-webkit-details-marker { display: none; }
+
+.summary-left { display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 0; }
+
+.sec-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.sec-title {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.chevron {
+  font-size: 1.2rem;
+  color: var(--rule);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+details[open] > summary .chevron { transform: rotate(90deg); color: var(--red); }
+
+/* Section body */
+.sec-body {
+  padding: 0 1.25rem 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Bullet lists ── */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+ul li {
+  position: relative;
+  padding: 0.28rem 0 0.28rem 1.1rem;
+  font-size: 0.91rem;
+  color: var(--mid);
+  line-height: 1.55;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.5;
+}
+ul ul { padding-left: 0.75rem; margin-top: 0.1rem; }
+ul ul li { font-size: 0.85rem; }
+ul ul li::before { width: 3px; height: 3px; opacity: 0.35; }
+
+/* Sub-headings inside sections */
+.sub-h {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--mid);
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.sub-h:first-child { margin-top: 0.8rem; }
+
+/* ── Figures ── */
+figure {
+  margin: 1.25rem 0;
+  background: var(--light);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--mid);
+  line-height: 1.5;
+  border-top: 1px solid var(--rule);
+}
+figcaption strong { color: var(--text); }
+
+/* Side-by-side figures */
+.fig-row {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+.fig-row figure {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+/* ── Tables ── */
+.table-wrap {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  min-width: 320px;
+}
+
+thead th {
+  background: var(--light);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--mid);
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--rule);
+}
+
+tbody td {
+  padding: 0.42rem 0.75rem;
+  color: var(--text);
+  vertical-align: top;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) td { background: #fafafa; }
+
+/* ── References ── */
+.ref-list { list-style: none; padding: 0; margin-top: 0.6rem; }
+.ref-list li {
+  font-size: 0.76rem;
+  color: #777;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+}
+.ref-list li::before { display: none; }
+.ref-list li:last-child { border-bottom: none; }
+.ref-list a { color: var(--red); text-decoration: none; word-break: break-all; }
+
+/* ── Tags ── */
+.tags { margin-top: 0.85rem; }
+.tag {
+  display: inline-block;
+  background: var(--light);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  margin: 0.15rem 0.1rem 0;
+  color: var(--mid);
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .site-title { font-size: 1rem; }
+  .uc-logo { width: 40px; }
+  .fig-row { flex-direction: column; }
+  .fig-row figure { min-width: unset; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     STICKY HEADER
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://www.canterbury.ac.nz/study/academic-study/science/science-schools-and-departments/school-of-psychology-speech-and-hearing">
+      <img class="uc-logo"
+        src="https://www.canterbury.ac.nz/content/uoc-main-site/language-master/en/about-uc/our-story/our-history/history-of-the-coat-of-arms/_jcr_content/root/container-content/columncontrol/container/image.coreimg.jpeg/1689207686734/coat-of-arms-uc.jpeg"
+        alt="University of Canterbury" onerror="this.style.display='none'">
+    </a>
+    <div class="header-text">
+      <div class="conf-tag">WCA 2026 &nbsp;·&nbsp; Poster PD 129</div>
+      <div class="site-title">Development of a Māori Language Ling Sound Test</div>
+      <div class="authors">
+        <strong>Jen Smith</strong>, <strong>Carla Duffield</strong>, <strong>Jeanette King</strong>, <strong>Greg A. O'Beirne</strong> &nbsp;·&nbsp;
+        University of Canterbury | Te Whare Wānanga o Waitaha, Christchurch, New Zealand
+      </div>
+    </div>
+  </div>
+  <div class="toggle-bar-outer">
+    <div class="toggle-inner">
+      <a class="toggle-pill pdf-btn" href="WCA2026_PD129.pdf" target="_blank" rel="noopener" title="Open poster PDF in new tab">
+        <span>PDF ↗</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<main>
+
+  <!-- ── Abstract ── -->
+  <div class="card">
+    <details>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Abstract</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333">
+          The Ling Sound Test (Ling, 1976; 1989) is widely used internationally to verify access to key speech frequencies through hearing aids or cochlear implants. However, the standard English Ling sounds do not align with the phonemic system of te reo Māori — the Indigenous language of Māori people of Aotearoa New Zealand. In particular, the high-frequency phonemes /s/ and /ʃ/ do not occur in te reo Māori, resulting in reduced linguistic and cultural validity for Māori tamariki (children) undergoing hearing assessment.
+        </p>
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333;margin-top:0.85em">
+          To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsive adaptation of the Ling test for use with Māori-speaking children. Following a He Awa Whiria / Braided Rivers approach, the test was co-designed with Indigenous communities, audiologists, teachers, and parents through iterative consultation. Six phonemes spanning the speech spectrum were selected — /m/, /o/ (MOKO), /i/ (PIKI), /a/ (WAKA), /f/, and /t/ — and recorded by a fluent speaker. A responsive mobile/web application was developed supporting calibrated delivery, offline playback, and te reo Māori and New Zealand English modes. Early professional feedback indicates strong engagement and enthusiasm for a linguistically and culturally authentic hearing assessment tool.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Introduction ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Introduction</span>
+          <span class="sec-title">Background &amp; Motivation</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+        <ul>
+          <li>The Ling Sound Test (Ling, 1976; 1989) is used internationally to verify access to key speech frequencies through hearing aids or cochlear implants</li>
+          <li>Six English speech sounds (/m/, /u/, /a/, /i/, /ʃ/, /s/) span the speech spectrum</li>
+          <li>In Aotearoa New Zealand and Australia, routinely used in educational and clinical settings, often with /ɔ/ added or substituted for /u/ (Agung et al., 2005; McDonnell, 2014; Rees, 2019)</li>
+          <li>These English Ling sounds do not align with the phonemic system of te reo Māori — the Indigenous language of Māori people of Aotearoa New Zealand</li>
+          <li>Te reo Māori is undergoing active revitalisation, but existing hearing assessments often require Māori-speaking children to respond to non-Māori phonology</li>
+          <li>The high-frequency phonemes /s/ and /ʃ/ do not occur in te reo Māori, reducing linguistic and cultural validity for Māori tamariki (children)</li>
+          <li>To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsive adaptation co-designed with Indigenous communities, audiologists, teachers, and parents</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Aims & Objectives ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Aims &amp; Objectives</span>
+          <span class="sec-title">Research Goals</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <div class="sub-h">Aim</div>
+        <ul>
+          <li>Develop a linguistically robust and culturally responsive te reo Māori adaptation of the Ling sound test</li>
+        </ul>
+
+        <div class="sub-h">Objectives</div>
+        <ul>
+          <li>Select Māori phonemes spanning the speech spectrum</li>
+          <li>Co-design with professionals and Māori stakeholders</li>
+          <li>Create calibrated mobile/web delivery</li>
+          <li>Evaluate usability and acoustic characteristics</li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Development Process ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Development Process</span>
+          <span class="sec-title">He Awa Whiria — Braided Rivers Approach</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <ul>
+          <li>This research followed a He Awa Whiria / Braided Rivers approach (Macfarlane et al., 2015), braiding together indigenous Māori knowledge (mātauranga Māori) and Western scientific knowledge traditions</li>
+        </ul>
+
+        <figure>
+          <img src="Figure01.png" alt="He Awa Whiria collaboration model diagram showing Māori Indigenous Knowledge and Western Scientific Literature braided together">
+          <figcaption><strong>Figure 1.</strong> The He Awa Whiria / Braided Rivers collaboration model, braiding Māori indigenous knowledge (mātauranga Māori) with Western scientific literature (Macfarlane et al., 2015).</figcaption>
+        </figure>
+
+        <div class="sub-h">Development Stages</div>
+        <ul>
+          <li>Wānanga — co-design with communities and experts</li>
+          <li>Phoneme selection</li>
+          <li>Audio recording &amp; editing</li>
+          <li>App development</li>
+          <li>Acoustic calibration</li>
+          <li>Feedback from audiologists, teachers, and parents</li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Phoneme Selection ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Phoneme Selection</span>
+          <span class="sec-title">Selecting the Six Stimuli</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <ul>
+          <li>Phonological analysis and acoustic measurements guided the selection of six representative Māori sounds for recording by a fluent speaker</li>
+        </ul>
+
+        <figure>
+          <img src="Figure02.png" alt="Average F1 and F2 formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016), showing historical elders, present-day elders, and youth">
+          <figcaption><strong>Figure 2.</strong> Average F₁ and F₂ formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016). Historical elders = black; present-day elders = dark grey; youth = light grey.</figcaption>
+        </figure>
+
+        <div class="sub-h">Low-frequency stimuli</div>
+        <ul>
+          <li>/m/ — voiced bilabial nasal</li>
+          <li>/o/ — MOKO — short mid-back rounded vowel</li>
+          <li>/i/ — PIKI — short close-front unrounded vowel</li>
+          <li>/a/ — WAKA — short open-central vowel</li>
+        </ul>
+
+        <div class="sub-h">High-frequency stimuli</div>
+        <ul>
+          <li>/f/ — voiceless labiodental fricative</li>
+          <li>/t/ — voiceless alveolar stop</li>
+        </ul>
+
+        <div class="sub-h">Notes on high-frequency selection</div>
+        <ul>
+          <li>Additional stimuli were recorded for TUKU (short close-back rounded vowel) and KETE (short close-mid unrounded vowel) for comparison</li>
+          <li>Variable pronunciation of the Māori "wh" digraph (commonly /f/, but also /w/ or /h/) prompted exploration of alternative high-frequency phonemes: /p/ (voiceless bilabial stop) and /h/ (voiceless glottal fricative)</li>
+          <li>Only /f/ and /t/ had sufficient high-frequency acoustic energy to warrant inclusion in the final stimulus set</li>
+          <li>The transient nature of /t/ required development of a repeated presentation delivery mode (e.g. ×3, ×5)</li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Acoustic Analyses ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Acoustic Analyses</span>
+          <span class="sec-title">Spectral Characteristics of the Stimuli</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <ul>
+          <li>LF phonemes were pitch-adjusted (maximum 22 cents) to achieve a consistent fundamental frequency of 182 Hz</li>
+          <li>Amplitudes of the recorded LF stimuli were adjusted to achieve a constant momentary k-weighted loudness (LUFS)</li>
+          <li>Amplitudes of the /t/ and /f/ phonemes were adjusted to preserve their relative levels with respect to vowels in a sample of continuous speech</li>
+        </ul>
+
+        <figure>
+          <img src="Figure03.png" alt="Raw and cepstral-smoothed spectra for all candidate phonemes showing pitch adjustment and spectral comparison">
+          <figcaption><strong>Figure 3.</strong> Raw and cepstral-smoothed spectra of the candidate phonemes. LF phonemes were pitch-adjusted (22 cents max) for a consistent f₀ of 182 Hz. The mean smoothed LF phoneme spectrum is shown in the right column for context.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="Figure04.png" alt="Overlaid raw and cepstral smooth spectra for the final six selected phonemes">
+          <figcaption><strong>Figure 4.</strong> Overlaid raw and cepstral-smooth spectra for the final six selected phonemes. Panel A shows raw spectral content; Panel B shows cepstral-smoothed spectra.</figcaption>
+        </figure>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── App Development ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">App Development</span>
+          <span class="sec-title">Mobile &amp; Web Delivery Platform</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <ul>
+          <li>A responsive mobile/web application was developed to support consistent and accessible delivery of the reo Māori Ling sound test across educational and clinical settings</li>
+          <li>Responsive design for phones, tablets, and desktop devices</li>
+          <li>Preloaded audio enabled low-latency offline playback</li>
+          <li>Calibration tools supported dB A level adjustment using a sound-level meter or second device (e.g. iOS NIOSH SLM app)</li>
+          <li>Te reo Māori and New Zealand English modes support use across Aotearoa</li>
+          <li>Early professional feedback indicates strong engagement and enthusiasm for a linguistically and culturally authentic tool</li>
+        </ul>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Conclusion ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">Conclusion</span>
+          <span class="sec-title">Te Whakamātautau Hoka — Summary</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+
+        <ul>
+          <li>Te Whakamātautau Hoka — the reo Māori Ling sound test — supports equitable and culturally meaningful hearing assessment in a revitalising Indigenous language</li>
+          <li>Demonstrates how linguistically and culturally grounded design can enhance engagement, accessibility, and clinical relevance in paediatric audiology</li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Te reo Māori</span>
+          <span class="tag">Ling sound test</span>
+          <span class="tag">Paediatric audiology</span>
+          <span class="tag">Indigenous health</span>
+          <span class="tag">Hearing assessment</span>
+          <span class="tag">Aotearoa New Zealand</span>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── References ── -->
+  <div class="card">
+    <details open>
+      <summary>
+        <div class="summary-left">
+          <span class="sec-label">References</span>
+        </div>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="sec-body">
+        <ul class="ref-list">
+          <li>Agung K, Purdy S, &amp; Kitamura C, 2005. The Ling sound test revisited. <em>Australian and New Zealand Journal of Audiology</em>, 27, 33–41. <a href="https://doi.org/10.1375/audi.2005.27.1.33">doi:10.1375/audi.2005.27.1.33</a></li>
+          <li>Duffield C, 2026. Development of the Reo Māori Ling Sound Test. MAud thesis. <a href="https://doi.org/10.26021/16395">doi:10.26021/16395</a></li>
+          <li>King J, Harlow R, Watson C, Keegan P, &amp; Maclagan M, 2009. Changing pronunciation of the Māori language: Implications for revitalization. In J. Reyhner &amp; L. Lockard (Eds.), <em>Indigenous Language Revitalization</em>.</li>
+          <li>Ling D, 1976. <em>Speech and the hearing-impaired child: Theory and practice.</em> Alexander Graham Bell Association for the Deaf, Inc.</li>
+          <li>Ling D, 1989. <em>Foundations of spoken language for hearing-impaired children.</em> Alexander Graham Bell Association for the Deaf Inc.</li>
+          <li>Macfarlane S, Macfarlane A, &amp; Gillon G, 2015. Sharing the food baskets of knowledge: Creating space for a blending of streams. In A. H. Macfarlane, S. Macfarlane, &amp; M. Webber (Eds.), <em>Sociocultural realities: Exploring new horizons</em> (pp. 52–68). Canterbury University Press.</li>
+          <li>McDonnell S, 2014. The Ling sound test: What is its relevance in the New Zealand classroom? <em>Kairaranga</em>, 15, 48–55. <a href="https://doi.org/10.54322/kairaranga.v15i2.250">doi:10.54322/kairaranga.v15i2.250</a></li>
+          <li>Rees B, 2019. Use of the Ling 7-Sound Test to monitor hearing in young children with Down syndrome. MAud thesis. <a href="http://doi.org/10.26021/8258">doi:10.26021/8258</a></li>
+          <li>Watson CI, Maclagan MA, King J, Harlow R, &amp; Keegan PJ, 2016. Sound change in Māori and the influence of New Zealand English. <em>Journal of the International Phonetic Association</em>, 46(2), 185–218. <a href="https://doi.org/10.1017/S0025100316000025">doi:10.1017/S0025100316000025</a></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+</main>
+
+<footer>
+  Poster presented at the 37th World Congress of Audiology &nbsp;·&nbsp; Copyright of the Authors<br>
+  University of Canterbury · Te Whare Wānanga o Waitaha · Christchurch, New Zealand<br>
+  COI: None declared
+</footer>
+
+</body>
+</html>
