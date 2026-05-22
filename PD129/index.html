@@ -215,6 +215,34 @@ ul ul { padding-left: 0.75rem; margin-top: 0.1rem; }
 ul ul li { font-size: 0.85rem; }
 ul ul li::before { width: 3px; height: 3px; opacity: 0.35; }
 
+/* ── Ordered lists (i ii iii) ── */
+ol {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  counter-reset: ol-counter;
+}
+ol li {
+  position: relative;
+  padding: 0.28rem 0 0.28rem 1.75rem;
+  font-size: 0.91rem;
+  color: var(--mid);
+  line-height: 1.55;
+  counter-increment: ol-counter;
+}
+ol li::before {
+  content: counter(ol-counter, lower-roman) ".";
+  position: absolute;
+  left: 0;
+  top: 0.28rem;
+  width: 1.5rem;
+  text-align: right;
+  font-size: 0.82rem;
+  color: var(--red);
+  opacity: 0.7;
+  font-variant-numeric: oldstyle-nums;
+}
+
 /* Sub-headings inside sections */
 .sub-h {
   font-size: 0.7rem;
@@ -370,8 +398,8 @@ footer {
       <div class="conf-tag">WCA 2026 &nbsp;·&nbsp; Poster PD 129</div>
       <div class="site-title">Development of a Māori Language Ling Sound Test</div>
       <div class="authors">
-        <strong>Jen Smith</strong>, <strong>Carla Duffield</strong>, <strong>Jeanette King</strong>, <strong>Greg A. O'Beirne</strong> &nbsp;·&nbsp;
-        University of Canterbury | Te Whare Wānanga o Waitaha, Christchurch, New Zealand
+        <a href="https://profiles.canterbury.ac.nz/Jennifer-Smith">Jen Smith</a>¹, <a href="https://www.linkedin.com/in/carla-hendry-264463301/">Carla Duffield</a>², <a href="https://profiles.canterbury.ac.nz/Jeanette-King">Jeanette King</a>³, <strong><a href="https://profiles.canterbury.ac.nz/Greg-O-Beirne">Greg A. O'Beirne</a></strong>² </br>
+        1. Te Kāhui Pā Harakeke | Child Wellbeing Research Institute & School of Teacher Education</br>2. Te Kura Mahi ā-Hirikapo | School of Psychology, Speech and Hearing</br>3. Aotahi - School of Māori and Indigenous Studies</br>Te Whare Wānanga o Waitaha, Ōtautahi, Aotearoa | University of Canterbury, Christchurch, New Zealand
       </div>
     </div>
   </div>
@@ -400,10 +428,16 @@ footer {
       </summary>
       <div class="sec-body">
         <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333">
-          The Ling Sound Test (Ling, 1976; 1989) is widely used internationally to verify access to key speech frequencies through hearing aids or cochlear implants. However, the standard English Ling sounds do not align with the phonemic system of te reo Māori — the Indigenous language of Māori people of Aotearoa New Zealand. In particular, the high-frequency phonemes /s/ and /ʃ/ do not occur in te reo Māori, resulting in reduced linguistic and cultural validity for Māori tamariki (children) undergoing hearing assessment.
+         The Ling Sound Test (Ling, 1976; 1989) is widely used internationally to verify access to key speech frequencies through hearing aids or cochlear implants. It uses six English speech sounds (/m/, /u/, /a/, /i/, /ʃ/, /s/) spanning the speech spectrum. In New Zealand and Australia, it is routinely used in educational and clinical settings, often with the back vowel /ɔ/ added or in place of /u/. However, for speakers of te reo Māori - the Indigenous language of Māori people in New Zealand and a language undergoing active revitalisation - these sounds do not align with the Māori phonemic system. The Māori vowels differ from English vowels, and the high-frequency fricatives /ʃ/ and /s/ do not occur in the language, limiting the test’s linguistic face validity and cultural relevance for Māori children and their families (whānau).
         </p>
         <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333;margin-top:0.85em">
-          To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsive adaptation of the Ling test for use with Māori-speaking children. Following a He Awa Whiria / Braided Rivers approach, the test was co-designed with Indigenous communities, audiologists, teachers, and parents through iterative consultation. Six phonemes spanning the speech spectrum were selected — /m/, /o/ (MOKO), /i/ (PIKI), /a/ (WAKA), /f/, and /t/ — and recorded by a fluent speaker. A responsive mobile/web application was developed supporting calibrated delivery, offline playback, and te reo Māori and New Zealand English modes. Early professional feedback indicates strong engagement and enthusiasm for a linguistically and culturally authentic hearing assessment tool.
+To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsive adaptation of the Ling test for use with Māori-speaking children. Phonological analysis and acoustic measurements guided the selection of six representative Māori sounds: the low-frequency nasal /m/, the three corner vowels (found in the Māori words PIKI, WAKA, and MOKO), the voiceless consonants /t/ and /f/, all of which are produced in triplets.
+        </p>
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333;margin-top:0.85em">
+The test was co-designed with Indigenous communities, audiologists, teachers, and parents through iterative consultation to ensure both cultural appropriateness and clinical practicality. Evaluation of Te Whakamātautau Hoka is currently underway in educational and audiological settings, examining usability, reliability, and cultural responsiveness with Māori-speaking children. Early feedback from professionals indicates strong engagement and enthusiasm for a linguistically authentic tool.
+        </p>
+        <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:#333;margin-top:0.85em">
+By supporting accurate hearing assessment in a revitalising Indigenous language, this work contributes to linguistic sustainability and equitable access to audiological care. It demonstrates how culturally grounded design can enhance engagement and equity in paediatric audiology and education worldwide.
         </p>
       </div>
     </details>
@@ -423,11 +457,11 @@ footer {
         <ul>
           <li>The Ling Sound Test (Ling, 1976; 1989) is used internationally to verify access to key speech frequencies through hearing aids or cochlear implants</li>
           <li>Six English speech sounds (/m/, /u/, /a/, /i/, /ʃ/, /s/) span the speech spectrum</li>
-          <li>In Aotearoa New Zealand and Australia, routinely used in educational and clinical settings, often with /ɔ/ added or substituted for /u/ (Agung et al., 2005; McDonnell, 2014; Rees, 2019)</li>
+          <ul><li>In Aotearoa New Zealand and Australia, routinely used in educational and clinical settings, often with /ɔ/ added or substituted for /u/ (Agung et al., 2005; McDonnell, 2014; Rees, 2019)</li></ul>
           <li>These English Ling sounds do not align with the phonemic system of te reo Māori — the Indigenous language of Māori people of Aotearoa New Zealand</li>
           <li>Te reo Māori is undergoing active revitalisation, but existing hearing assessments often require Māori-speaking children to respond to non-Māori phonology</li>
-          <li>The high-frequency phonemes /s/ and /ʃ/ do not occur in te reo Māori, reducing linguistic and cultural validity for Māori tamariki (children)</li>
-          <li>To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsive adaptation co-designed with Indigenous communities, audiologists, teachers, and parents</li>
+          <ul><li>The high-frequency phonemes /s/ and /ʃ/ do not occur in te reo Māori, reducing linguistic and cultural validity for Māori tamariki (children)</li></ul>
+          <li>To address this gap, we developed <em>Te Whakamātautau Hoka</em>, a culturally responsiveadaptation of the Ling test for use with Māori-speaking children. The test was co-designed with Indigenous communities, audiologists, speech-language therapists, and teachers through iterative consultation to ensure both cultural appropriatenessand clinical practicality</li>
         </ul>
       </div>
     </details>
@@ -480,18 +514,18 @@ footer {
 
         <figure>
           <img src="Figure01.png" alt="He Awa Whiria collaboration model diagram showing Māori Indigenous Knowledge and Western Scientific Literature braided together">
-          <figcaption><strong>Figure 1.</strong> The He Awa Whiria / Braided Rivers collaboration model, braiding Māori indigenous knowledge (mātauranga Māori) with Western scientific literature (Macfarlane et al., 2015).</figcaption>
+          <figcaption><strong>Figure 1.</strong> The He Awa Whiria / Braided Rivers collaboration model.</figcaption>
         </figure>
 
         <div class="sub-h">Development Stages</div>
-        <ul>
+        <ol type="i">
           <li>Wānanga — co-design with communities and experts</li>
           <li>Phoneme selection</li>
           <li>Audio recording &amp; editing</li>
           <li>App development</li>
           <li>Acoustic calibration</li>
           <li>Feedback from audiologists, teachers, and parents</li>
-        </ul>
+        </ol>
 
       </div>
     </details>
@@ -513,11 +547,6 @@ footer {
           <li>Phonological analysis and acoustic measurements guided the selection of six representative Māori sounds for recording by a fluent speaker</li>
         </ul>
 
-        <figure>
-          <img src="Figure02.png" alt="Average F1 and F2 formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016), showing historical elders, present-day elders, and youth">
-          <figcaption><strong>Figure 2.</strong> Average F₁ and F₂ formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016). Historical elders = black; present-day elders = dark grey; youth = light grey.</figcaption>
-        </figure>
-
         <div class="sub-h">Low-frequency stimuli</div>
         <ul>
           <li>/m/ — voiced bilabial nasal</li>
@@ -531,6 +560,10 @@ footer {
           <li>/f/ — voiceless labiodental fricative</li>
           <li>/t/ — voiceless alveolar stop</li>
         </ul>
+        <figure>
+          <img src="Figure02.png" alt="Average F1 and F2 formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016), showing historical elders, present-day elders, and youth">
+          <figcaption><strong>Figure 2.</strong> Average F₁ and F₂ formant frequencies for male and female speakers of te reo Māori (Watson et al., 2016). Historical elders = black; present-day elders = dark grey; youth = light grey.</figcaption>
+        </figure>
 
         <div class="sub-h">Notes on high-frequency selection</div>
         <ul>
@@ -555,8 +588,8 @@ footer {
         <span class="chevron">›</span>
       </summary>
       <div class="sec-body">
-
         <ul>
+		<li>Spectra of low-frequency sounds /m/, the vowels MOKO, PIKI, WAKA, KETE, and TUKU, and the consonants /h/, /p/, /t/, and /f/ are shown in Figure 3 below.</li>
           <li>LF phonemes were pitch-adjusted (maximum 22 cents) to achieve a consistent fundamental frequency of 182 Hz</li>
           <li>Amplitudes of the recorded LF stimuli were adjusted to achieve a constant momentary k-weighted loudness (LUFS)</li>
           <li>Amplitudes of the /t/ and /f/ phonemes were adjusted to preserve their relative levels with respect to vowels in a sample of continuous speech</li>
@@ -596,7 +629,10 @@ footer {
           <li>Te reo Māori and New Zealand English modes support use across Aotearoa</li>
           <li>Early professional feedback indicates strong engagement and enthusiasm for a linguistically and culturally authentic tool</li>
         </ul>
-
+        <figure style="display:block;width:517px;max-width:100%;margin-left:auto;margin-right:auto;">
+          <img src="Figure05.png" alt="Screenshot of the Te Whakamātautau Hoka app" style="width:517px;max-width:100%;height:auto;">
+          <figcaption style="text-align:center;"><strong>Figure 5.</strong> Screenshot of the <em>Te Whakamātautau Hoka</em> app.</figcaption>
+        </figure>
       </div>
     </details>
   </div>
@@ -614,8 +650,9 @@ footer {
       <div class="sec-body">
 
         <ul>
-          <li>Te Whakamātautau Hoka — the reo Māori Ling sound test — supports equitable and culturally meaningful hearing assessment in a revitalising Indigenous language</li>
-          <li>Demonstrates how linguistically and culturally grounded design can enhance engagement, accessibility, and clinical relevance in paediatric audiology</li>
+          <li>Te Whakamātautau Hoka — the reo Māori Ling sound test
+<ul><li>supports equitable and culturally meaningful hearing assessment in a revitalising Indigenous language</li>
+          <li>Demonstrates how linguistically and culturally grounded design can enhance engagement, accessibility, and clinical relevance in paediatric audiology</li></ul>
         </ul>
 
         <div class="tags">
