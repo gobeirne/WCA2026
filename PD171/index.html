@@ -150,17 +150,16 @@ body {
   display: none;
 }
 @media (min-width: 480px) { .toggle-hint { display: block; } }
+  
+.demo-btn { margin-left: auto; }
 
 /* PDF button — same pill style, pushed to right */
 .pdf-btn {
-  margin-left: auto;
+  margin-left: 0;
   text-decoration: none;
   color: var(--mid);
   display: flex;
 }
-.toggle-hint + .pdf-btn { margin-left: 0.5rem; } /* when hint is also showing */
-@media (max-width: 479px) { .pdf-btn { margin-left: auto; } }
-
 .pdf-btn span {
   display: block;
   padding: 0.28rem 0.9rem;
@@ -176,7 +175,7 @@ body {
   background: var(--red);
   color: var(--white);
 }
-
+  
 /* ── Main content ── */
 main {
   max-width: 780px;
@@ -689,7 +688,7 @@ footer {
         <button id="btn-details" onclick="setMode('details')">Details</button>
       </div>
       <!--<span class="toggle-hint">Switch anytime — figures stay put</span>-->
-      <a class="toggle-pill pdf-btn" href="#demo"><span>Demo</span></a>
+      <a class="toggle-pill pdf-btn demo-btn" href="#demo"><span>Demo</span></a>
       <a class="toggle-pill pdf-btn" href="WCA2026_PD171.pdf" target="_blank" rel="noopener" title="Open poster PDF in new tab">
         <span>PDF ↗</span>
       </a>
