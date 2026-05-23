@@ -146,16 +146,19 @@ body {
 .toggle-hint {
   font-size: 0.71rem;
   color: #bbb;
-  margin-left: auto;
   display: none;
 }
 @media (min-width: 480px) { .toggle-hint { display: block; } }
   
-.demo-btn { margin-left: auto; }
+.toggle-right {
+  margin-left: auto;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
 
-/* PDF button — same pill style, pushed to right */
+/* PDF/Demo buttons — same pill style */
 .pdf-btn {
-  margin-left: 0;
   text-decoration: none;
   color: var(--mid);
   display: flex;
@@ -687,11 +690,10 @@ footer {
         <button id="btn-bullets" class="active" onclick="setMode('bullets')">Bullet points</button>
         <button id="btn-details" onclick="setMode('details')">Details</button>
       </div>
-      <!--<span class="toggle-hint">Switch anytime — figures stay put</span>-->
-      <a class="toggle-pill pdf-btn demo-btn" href="#demo"><span>Demo</span></a>
-      <a class="toggle-pill pdf-btn" href="WCA2026_PD171.pdf" target="_blank" rel="noopener" title="Open poster PDF in new tab">
-        <span>PDF ↗</span>
-      </a>
+      <div class="toggle-right">
+        <a class="toggle-pill pdf-btn" href="#demo"><span>Demo</span></a>
+        <a class="toggle-pill pdf-btn" href="WCA2026_PD171.pdf" target="_blank" rel="noopener" title="Open poster PDF in new tab"><span>PDF ↗</span></a>
+      </div>
     </div>
   </div>
 </header>
